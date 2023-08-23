@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+</head>
+
+<body>
+    <h1>Create Product</h1>
+    <h2>Detail Product</h2>
+    <form>
+        <div class="productname">
+            <label for="productname">Product Name :</label><br>
+            <input type="text" maxlength="50" minlength="6" id="productname" name="productname" required /><br>
+        </div>
+        <div class="productcategory">
+            <label for="productcategory">Product Category :</label><br>
+            <select id="clothes" name="clothes" required>
+                <option value="shirt">Shirt</option>
+                <option value="pants">Pants</option>
+                <option value="hoodie">Hoodie</option>
+                <option value="shoes">Shoes</option>
+            </select><br>
+        </div>
+        <div class="productfreshness">
+            <label for="productfreshness">Product Freshness :</label><br>
+              <input type="radio" id="brand-new" name="productfreshness" value="Brand New" required />
+              <label for="brand-new">Brand New</label><br>
+              <input type="radio" id="scond-hand" name="productfreshness" value="Second Hand" required />
+              <label for="scond-hand">Second Hand</label><br>
+              <input type="radio" id="refurbished" name="productfreshness" value="Refurbished" required />
+              <label for="refurbished">Refurbished</label><br>
+        </div>
+        <div class=" imageforproduct">
+            <label for="imageforproduct">Image of product:</label>
+            <input type="file" id="imageforproduct" name="imageforproduct" required /><br>
+            <label for="imageforproduct">Additional Description</label><br>
+        </div>
+        <div class="textarea">
+            <textarea name="message" rows="10" cols="30"></textarea>
+            <br>
+        </div>
+        <div class="productprice">
+            <label for="productprice">Product Price :</label><br>
+            <input type="number" id="productprice" name="productprice" size="5" placeholder="$100" required /><br><br>
+        </div>
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>
