@@ -7,6 +7,15 @@
   padding: 0 200px;
 }
 
+.text-center h2 {
+  font-size: 2rem;
+}
+
+.text-center p {
+  font-size: 20px;
+  font-weight: 300;
+}
+
 .form-product {
   padding: 0 350px;
 }

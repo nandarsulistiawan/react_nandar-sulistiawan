@@ -1,35 +1,39 @@
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
-import bootstrapLogo from '../assets/bootstrap-logo.svg'
 import '../createproduct.css'
 
 const CreateProduct = () => {
+  const [productName, setProductName] = useState('');
+  const [isProductNameValid, setIsProductNameValid] = useState(true);
+
+  const handleProductNameChange = (event) => {
+    const value = event.target.value;
+    setProductName(value);
+
+    // Validasi productName (tidak lebih dari 10 karakter)
+    setIsProductNameValid(value.length <= 10);
+  };
+
+  // Hasilkan nomor acak
+  const handleButtonClick = () => {
+    const randomNumber = Math.floor(Math.random() * 1000); 
+    console.log('Random Number:', randomNumber);
+  };
 
   return (
     <div className="container-product">
     <Container className="mt-4">
-    <div className="py-5 text-center">
-  <img
-    className="d-block mx-auto mb-4"
-    src={bootstrapLogo}
-    alt=""
-    width={72}
-    height={57}
-  />
-  <h2>Create Product</h2>
-  <p className="lead">
-    Below is an example form built entirely with Bootstrap’s form controls. Each
-    required form group has a validation state that can be triggered by
-    attempting to submit the form without completing it.
-  </p>
-</div>
      <Form className="form-product">
      <h4 className='mb-3'>Detail Product</h4>
         <Form.Group className="mb-3 col-6 " controlId="formGridProductName">
           <Form.Label>Product Name</Form.Label>
           <Form.Control type="text" placeholder="Enter Product Name" id="productName"
+          value={productName}
+          onChange={handleProductNameChange}
            />
+           {!isProductNameValid && <span style={{ color: 'red' }}>Product Name must not exceed 10 characters.</span>}
         </Form.Group>
 
         <Form.Group className='mb-3 col-5' controlId="formGridState">
@@ -89,6 +93,7 @@ const CreateProduct = () => {
       <Button variant="primary w-100 mb-3" type="submit">
         Submit
       </Button>
+      <Button variant='primary w-100' onClick={handleButtonClick}>Generate Random Number</Button>
     </Form>
     </Container>
     </div>
