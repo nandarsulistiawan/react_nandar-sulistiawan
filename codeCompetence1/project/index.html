@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing Page</title>
+
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- CSS Style -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Navbar Srction -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a href="#" class="logo">Clouddesign</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Akhir Navbar Section-->
+
+    <!-- Hero Section-->
+    <section id="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-hero">
+                    <div class="text">
+                        Bring Your Imagination to Reality with Graphic Design
+                    </div>
+                    <div class="button">
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 gambar">
+                    <img src="../screenshot/Untitled-1.png" alt="" class="w-100">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Hero Section -->
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="text col-md-12 col-lg-6">
+                    <h1 class="tittle-contact mb-3">CONTACT US</h1>
+                    <h4 class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam fugit
+                        vero quam? Placeat laborum veniam commodi voluptatem,</h4>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <form id="contactForm">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" placeholder="First name" id="firstName"
+                                    required>
+                            </div>
+                            <div class="col">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Last name" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"
+                                required></textarea>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Contact Section -->
+    <hr>
+    <!-- Footer Section -->
+    <footer class="pt-4 bg-footer">
+        <div class="container py-4 pt-md-5 px-4 px-md-3 text-footer">
+            <div class="row">
+                <div class="col-lg-3 mb-3">
+                    <a href="#" class="d-inline-flex align-items-center mb-2 logo text-decoration-none">
+                        cloudesign
+                    </a>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2">
+                            Bring Your Imagination to Reality with Graphic Design
+                        </li>
+                    </ul>
+                    <div class="py-4">
+                        <a href="#" class="text-decoration-none">
+                            <div class="d-inline-flex align-items-center justify-content-center icon-social-media rounded-circle align-middle"
+                                style="width: 38px; height: 38px;">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                        </a>
+                        <a href="https://instagram.com/clouddesign.21?igshid=YTQwZjQ0NmI0OA=="
+                            class="text-decoration-none">
+                            <div class="d-inline-flex align-items-center justify-content-center icon-social-media rounded-circle align-middle ms-3"
+                                style="width: 38px; height: 38px;">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/nandar-sulistiawan-611886283/"
+                            class="text-decoration-none">
+                            <div class="d-inline-flex align-items-center justify-content-center icon-social-media rounded-circle align-middle ms-3"
+                                style="width: 38px; height: 38px;">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-3 mb-3 ">
+                    <h5>Link</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Home</a></li>
+                        <li class="mb-2"><a href="#">About</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">UI/UX Design</a></li>
+                        <li class="mb-2"><a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2 mb-3">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Customer Support</a></li>
+                        <li class="mb-2"><a href="#">Discussions</a></li>
+                        <li class="mb-2"><a href="#">Delevery Details</a></li>
+                        <li class="mb-2"><a href="#">Terms & Condition</a></li>
+                        <li class="mb-2"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <hr>
+                    <p class="text-right pt-4">© 2023 Cloud. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer Section -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Retrieve form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Construct the message for the alert
+            const alertMessage = `First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nMessage: ${message}`;
+
+            // Display an alert with the form data
+            alert(alertMessage);
+        });
+
+    </script>
+</body>
+
+</html>

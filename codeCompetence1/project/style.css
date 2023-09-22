@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,500,700,800,900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fefefe;
+}
+
+/*========== Navbar Section ==========*/
+.navbar {
+  padding: 22px 0;
+  background: #fefefe;
+}
+.logo {
+  color: #010101;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.nav-link {
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #010101;
+}
+.nav-link:hover {
+  color: #4272ff;
+}
+/*========== Akhir Navbar Section ==========*/
+
+/*========== Hero Section ==========*/
+#hero {
+  padding: 50px 0;
+}
+.text-hero {
+  transform: translateY(90px);
+  opacity: 0;
+  animation: fadeup 1s ease-in-out 1;
+}
+@keyframes fadeup {
+  0% {
+    transform: translateY(90px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+.text-hero {
+  transform: translateY(0px);
+  opacity: 1;
+}
+#hero .text {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 73px;
+  color: #010101;
+  padding-top: 80px;
+}
+
+.button {
+  padding-top: 69px;
+}
+
+.button .btn {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 11px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px 0 0 0;
+  color: #fff;
+  background: #4272ff;
+  border: none;
+}
+
+#hero .button .btn:hover {
+  scale: 110%;
+}
+
+.gambar {
+  transform: scale(0.2);
+  animation: zoomIn 01s ease-in-out;
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.gambar {
+  padding: 10px 40px;
+  transform: scale(1);
+}
+
+/*========== Akhir Hero Section ==========*/
+
+/*========== Contact Section ==========*/
+#contact .container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.tittle-contact {
+  font-size: 40px;
+  font-weight: 800;
+  color: #010101;
+  line-height: 105%;
+}
+
+#contact .text h4 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #010101;
+  line-height: 184%;
+  margin-right: 50px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #010101;
+}
+
+#contact .btn {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 11px 28px;
+  border-radius: 30px;
+  transition: 0.5s;
+  margin: 10px 0 0 0;
+  color: #fff;
+  background: #4272ff;
+  border: none;
+}
+/*========== Akhir Contact Section ==========*/
+
+/*========== Footer Section ==========*/
+.text-footer {
+  color: #010101;
+}
+footer h5 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+footer ul li a {
+  color: #010101;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: #4272ff;
+}
+
+.icon-social-media {
+  background-color: #010101;
+  color: #ffffff;
+  transition: 0.5s;
+}
+
+.icon-social-media:hover {
+  background-color: #4272ff;
+  color: #ffffff;
+}
+
+hr {
+  color: #010101;
+}
+
+.copyright p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22px;
+}
+/*========== Akhir Footer Section ==========*/
+
+/*========== Responsive ==========*/
+@media (max-width: 992px) {
+  #hero .text {
+    padding-top: 10px;
+  }
+
+  .button {
+    padding-top: 40px;
+    margin-bottom: 50px;
+  }
+
+  #contact .text {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  #contact .text h4 {
+    margin: auto;
+  }
+}
+/*========== Akhir Responsive ==========*/
