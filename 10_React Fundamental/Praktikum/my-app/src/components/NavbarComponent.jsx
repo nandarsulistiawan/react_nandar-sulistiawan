@@ -1,19 +1,28 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { useNavigate } from "react-router-dom";
+import { Container, Nav, Navbar } from "react-bootstrap";
+
 const NavbarComponent = () => {
-    return <>
-    <Navbar bg="light" data-bs-theme="light" className="shadow sticky-top">
-      <Container>
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-        <Nav className="ms-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-        </Nav>
-      </Container>
-    </Navbar>
-  </>
+  const navigate = useNavigate();
+  return (
+    <>
+      <Navbar bg="light" data-bs-theme="light" className="shadow sticky-top">
+        <Container>
+          <Navbar.Brand href="#">Simple Header</Navbar.Brand>
+          <Nav className="ms-auto">
+            <Nav.Link onClick={() => navigate("/")} href="#">
+              Home
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate("/createaccount")} href="#">
+              Create Account
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate("/createproduct")} href="#">
+              Create Product
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
+  );
 };
 
 export default NavbarComponent;
