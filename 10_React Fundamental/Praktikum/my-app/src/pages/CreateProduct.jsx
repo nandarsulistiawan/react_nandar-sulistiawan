@@ -1,37 +1,38 @@
 import { useState } from "react";
 import TittleComponent from "../components/TittleComponent";
-import {
-  Button,
-  Form,
-  Container,
-  Table,
-  Modal,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Button, Form, Container, Row, Col } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import "../createproduct.css";
+import axios from "axios";
+import "../CSS/CreateProduct.css";
 
 const CreateProduct = () => {
   const [products, setProducts] = useState([]);
   const [productName, setProductName] = useState("");
-  const [isProductNameValid, setIsProductNameValid] = useState(true);
   const [productCategory, setProductCategory] = useState("");
   const [productFreshness, setProductFreshness] = useState("");
   const [productPrice, setProductPrice] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [deleteProductId, setDeleteProductId] = useState("");
+  const [isProductNameValid, setIsProductNameValid] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [productImage, setProductImage] = useState(null);
+  const navigate = useNavigate();
 
   const handleProductNameChange = (e) => {
-    const value = e.target.value;
-    if (value.length <= 10) {
-      setProductName(value);
+    const newName = e.target.value;
+    const regex = /^[a-zA-Z\s]{1,10}$/;
+    if (regex.test(newName)) {
+      setProductName(newName);
+      setIsProductNameValid("");
+    } else {
+      setIsProductNameValid("Product Name must not exceed 10 characters.");
     }
-    setIsProductNameValid(value.length <= 10);
   };
-
   const handleProductCategoryChange = (e) => {
-    setProductCategory(e.target.value);
+    const newCategory = e.target.value;
+    const regex = /^[a-zA-Z\s]+$/;
+    if (regex.test(newCategory)) {
+      setProductCategory(newCategory);
+    }
   };
 
   const handleProductFreshnessChange = (e) => {
@@ -39,9 +40,42 @@ const CreateProduct = () => {
   };
 
   const handleProductPriceChange = (e) => {
-    setProductPrice(e.target.value);
+    const newPrice = e.target.value;
+    const regex = /^\d+(\.\d{1,2})?$/;
+    if (regex.test(newPrice)) {
+      setProductPrice(newPrice);
+    }
   };
 
+  const handleDescriptionChange = (e) => {
+    const newDescription = e.target.value;
+    const regex = /^[a-zA-Z\s]{1,500}$/;
+    if (regex.test(newDescription)) {
+      setProductDescription(newDescription);
+    }
+  };
+
+  const handleProductImageChange = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertBase64(file);
+    setProductImage(base64);
+  };
+  // convert Base64
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+  // Handle Add Product
   const handleAddProduct = () => {
     const newProduct = {
       id: uuidv4(),
@@ -49,30 +83,19 @@ const CreateProduct = () => {
       productCategory,
       productFreshness,
       productPrice,
+      productDescription,
+      productImage,
     };
     setProducts([...products, newProduct]);
-    setProductName("");
-    setProductCategory("");
-    setProductFreshness("");
-    setProductPrice("");
-  };
 
-  const handleDeleteProduct = (productId) => {
-    setIsModalOpen(true);
-    setDeleteProductId(productId);
-  };
-
-  const handleConfirmDelete = () => {
-    const updatedProducts = products.filter(
-      (product) => product.id !== deleteProductId
-    );
-    setProducts(updatedProducts);
-    setIsModalOpen(false);
-  };
-
-  const handleCancelDelete = () => {
-    setIsModalOpen(false);
-    setDeleteProductId("");
+    // Axios Post to json server
+    axios
+      .post("http://localhost:3000/product", newProduct)
+      .then((res) => {
+        console.log(res);
+        navigate("/listproduct");
+      })
+      .catch((err) => console.log(err));
   };
 
   // Hasilkan nomor acak
@@ -94,14 +117,12 @@ const CreateProduct = () => {
                 <Col md="6">
                   <Form.Control
                     type="text"
-                    placeholder="Enter Product Name"
+                    placeholder="Enter product name"
                     value={productName}
                     onChange={handleProductNameChange}
                   />
-                  {!isProductNameValid && (
-                    <span style={{ color: "red" }}>
-                      Product Name must not exceed 10 characters.
-                    </span>
+                  {isProductNameValid && (
+                    <span className="text-danger">{isProductNameValid}</span>
                   )}
                 </Col>
               </Form.Group>
@@ -114,7 +135,7 @@ const CreateProduct = () => {
                     value={productCategory}
                     onChange={handleProductCategoryChange}
                   >
-                    <option value="">Select Category</option>
+                    <option value="">Select category</option>
                     <option value="T Shirt">T Shirt</option>
                     <option value="Pants">Pants</option>
                     <option value="Shoes">Shoes</option>
@@ -122,10 +143,14 @@ const CreateProduct = () => {
                 </Col>
               </Form.Group>
 
-              <Form.Group controlId="formFile" className="mb-3">
+              <Form.Group controlId="productImage" className="mb-3">
                 <Col md="4">
                   <Form.Label>Product Image</Form.Label>
-                  <Form.Control type="file" />
+                  <Form.Control
+                    type="file"
+                    accept="image/*"
+                    onChange={handleProductImageChange}
+                  />
                 </Col>
               </Form.Group>
 
@@ -158,7 +183,12 @@ const CreateProduct = () => {
 
               <Form.Group controlId="productDescription" className="mb-3">
                 <Form.Label>Additional Description</Form.Label>
-                <Form.Control as="textarea" style={{ height: "100px" }} />
+                <Form.Control
+                  as="textarea"
+                  style={{ height: "100px" }}
+                  value={productDescription}
+                  onChange={handleDescriptionChange}
+                />
               </Form.Group>
 
               <Form.Group controlId="productPrice" className="mb-5">
@@ -171,62 +201,17 @@ const CreateProduct = () => {
                 />
               </Form.Group>
 
-              <Button variant="primary w-100 mb-3" onClick={handleAddProduct}>
+              <Button variant="primary w-100 mb-3 " onClick={handleAddProduct}>
                 Submit
               </Button>
+              <Link to="/listproduct" className="btn btn-primary w-100 mb-3">
+                Back
+              </Link>
+
               <Button variant="primary w-100" onClick={handleButtonClick}>
                 Generate Random Number
               </Button>
             </Form>
-            <h3 className="mt-3 text-center">List Product</h3>
-            <Table striped bordered hover className="mt-3">
-              <thead>
-                <tr>
-                  <th>No</th>
-                  <th>Product Name</th>
-                  <th>Product Category</th>
-                  <th>Product Freshness</th>
-                  <th>Product Price</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product, index) => (
-                  <tr key={product.id}>
-                    <td>{index + 1}</td>
-                    <td>{product.productName}</td>
-                    <td>{product.productCategory}</td>
-                    <td>{product.productFreshness}</td>
-                    <td>{product.productPrice}</td>
-                    <td>
-                      <Button
-                        variant="danger"
-                        onClick={() => handleDeleteProduct(product.id)}
-                      >
-                        Delete
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-
-            <Modal show={isModalOpen} onHide={handleCancelDelete}>
-              <Modal.Header closeButton>
-                <Modal.Title>Confirmation</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                Are you sure you want to delete this product?
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleCancelDelete}>
-                  Cancel
-                </Button>
-                <Button variant="danger" onClick={handleConfirmDelete}>
-                  Delete
-                </Button>
-              </Modal.Footer>
-            </Modal>
           </Col>
         </Row>
       </Container>
