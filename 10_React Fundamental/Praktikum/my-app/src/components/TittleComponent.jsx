@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import bootstrapLogo from "../assets/bootstrap-logo.svg";
-import "../createproduct.css";
 
 const TittleComponent = () => {
   const [language, setLanguage] = useState("english");
