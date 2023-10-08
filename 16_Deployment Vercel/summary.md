@@ -6,3 +6,6 @@ Deployment adalah kegiatan yang bertujuan untuk menyebarkan aplikasi yang sudah 
 banyak orang. Tidak hanya kita sendiri.
 
 Surge adalah layanan penerbit website static untuk front-end developer. Website yang menggunakan surge akan memiliki domain \*.surge.sh .
+
+link website
+https://latihan-deployment-iota.vercel.app/
