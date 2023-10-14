@@ -5,7 +5,7 @@ berbagai komponen perangkat lunak. Pada tingkat tinggi, RestfulAPI memungkinkan 
 di sistem, seperti membaca data atau melakukan perubahan ke sumber daya tersebut.
 
 Salah satu karakteristik utama dari RestfullAPI adalah penggunaan metode HTTP standar (seperti GET, POST, PUT, DELETE) untuk memanipulasi
-sumber daya. Metode ini menggambarkan operasi yang dilakukan pada sumber daya, seperti mendapatkan data (GET), menambahkan data baru\(POST), memperbarui data yang ada (PUT), atau menghapus data (DELETE).
+sumber daya. Metode ini menggambarkan operasi yang dilakukan pada sumber daya, seperti mendapatkan data (GET), menambahkan data baru (POST), memperbarui data yang ada (PUT), atau menghapus data (DELETE).
 
 Selain itu, Restfull API memanfaatkan konsep URI (Uniform Resource Identifier) sebagai cara untuk mengidentifikasi sumber daya. URI
 digunakan untuk menyampaikan informasi tentang lokasi dan tindakan yang diinginkan terhadap sumber daya.
