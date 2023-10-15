@@ -6,3 +6,6 @@ visi komputer, dan robotika. Pengaplikasian AI dalam dunia nyata yaitu dalam bid
 menciptakan mesin yang dapat menunjukkan perilaku cerdas dan beradaptasi dengan informasi dan situasi baru. Adapun sisi negatif dari AI
 yaitu Potensi bias dan diskriminasi, pengeser lapangan pekerjaan, privasi dan keamanan, ketergantungan teknologo, kurangnya transparansi
 dan kejelasan, serta akuntabilitas dan tanggung jawab.
+
+Link File Google Docs Latihan Perkanalan AI dan OpenAI
+https://docs.google.com/document/d/1Aqjelt8Zq5L97EPjy2IPL5sCtYGJ1OuJpTUvQPHGbhw/edit?usp=sharing
