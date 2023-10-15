@@ -9,3 +9,6 @@ Surge adalah layanan penerbit website static untuk front-end developer. Website 
 
 link website
 https://latihan-deployment-iota.vercel.app/
+
+link repo deployment
+https://github.com/nandarsulistiawan/Latihan-Deployment
