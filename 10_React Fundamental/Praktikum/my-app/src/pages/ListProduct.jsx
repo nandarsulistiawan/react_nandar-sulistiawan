@@ -8,7 +8,7 @@ export const ListProduct = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/product")
+      .get("https://65224210f43b179384145703.mockapi.io/product/")
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -19,7 +19,7 @@ export const ListProduct = () => {
     );
     if (confirm) {
       axios
-        .delete("http://localhost:3000/product/" + id)
+        .delete("https://65224210f43b179384145703.mockapi.io/product/" + id)
         .then((res) => {
           location.reload(res);
         })

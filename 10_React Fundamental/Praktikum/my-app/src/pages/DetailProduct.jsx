@@ -6,10 +6,10 @@ const DetailProduct = () => {
   const [data, setData] = useState([]);
   const { id } = useParams();
 
-  // axios get data json server
+  // axios get data
   useEffect(() => {
     axios
-      .get("http://localhost:3000/product/" + id)
+      .get("https://65224210f43b179384145703.mockapi.io/product/" + id)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   });
