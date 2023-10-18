@@ -39,6 +39,13 @@ const NavbarComponent = () => {
               >
                 Create Product
               </Nav.Link>
+              <Nav.Link
+                onClick={() => navigate("/aipage")}
+                href="#"
+                style={{ color: "white" }}
+              >
+                OpenAI
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
