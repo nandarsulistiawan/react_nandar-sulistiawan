@@ -8,7 +8,7 @@ const openai = new OpenAI({
 });
 
 function AiPage() {
-  const [prompt, setPrompt] = useState("");
+  const [userInput, setUserInput] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -17,11 +17,11 @@ function AiPage() {
     try {
       const response = await openai.completions.create({
         model: "text-davinci-003",
-        prompt: prompt,
+        prompt: `Q: Apa saja peristiwa penting dalam sejarah Indonesia?\nA: Sejarah Indonesia ditandai oleh beberapa peristiwa penting, termasuk ${userInput}. Bisakah Anda memberikan lebih banyak detail tentang ${userInput}?\nQ:`,
         temperature: 0.5,
-        max_tokens: 500,
+        max_tokens: 150,
       });
-      setResult(response.choices[0].text);
+      setResult(response.choices[0].text.trim());
     } catch (error) {
       console.error(error);
     }
@@ -29,7 +29,7 @@ function AiPage() {
   };
 
   const handleDelete = () => {
-    setPrompt("");
+    setUserInput("");
     setResult("");
   };
 
@@ -37,20 +37,28 @@ function AiPage() {
     <div className="chat-container">
       <div className="chat-box">
         <div className="chat">
+          <div className="ai-message">
+            <p>
+              Selamat datang di Chat Tanya Jawab Sejarah Indonesia. Silakan
+              ajukan pertanyaan terkait sejarah Indonesia!
+            </p>
+          </div>
+        </div>
+        <div className="chat">
           <div className="user-message">
             <textarea
               type="text"
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Write your message..."
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              placeholder="Ajukan pertanyaan sejarah Indonesia..."
               className="textarea"
             ></textarea>
             <button
               onClick={handleClick}
-              disabled={loading || prompt.length === 0}
+              disabled={loading || userInput.length === 0}
               className="btn"
             >
-              {loading ? "Generating.." : "Generate"}
+              {loading ? "Generating..." : "Generate"}
             </button>
             <button className="delete-btn" onClick={handleDelete}>
               Delete
@@ -60,7 +68,8 @@ function AiPage() {
         {result && (
           <div className="chat">
             <div className="ai-message">
-              <pre className="result">{result}</pre>
+              <p>Answer:</p>
+              <div className="result">{result}</div>
             </div>
           </div>
         )}
