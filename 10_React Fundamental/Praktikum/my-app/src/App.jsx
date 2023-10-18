@@ -5,6 +5,7 @@ import CreateProduct from "./pages/CreateProduct";
 import DetailProduct from "./pages/DetailProduct";
 import { ListProduct } from "./pages/ListProduct";
 import CreateAccount from "./pages/CreateAccount";
+import AiPage from "./pages/AiPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/listproduct" Component={ListProduct} />
         <Route path="/createproduct" Component={CreateProduct} />
         <Route path="/detailproduct/:id" Component={DetailProduct} />
+        <Route path="/aipage" element={<AiPage />} />
       </Routes>
     </>
   );
