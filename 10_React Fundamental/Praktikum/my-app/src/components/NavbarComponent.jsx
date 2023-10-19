@@ -46,6 +46,13 @@ const NavbarComponent = () => {
               >
                 OpenAI
               </Nav.Link>
+              <Nav.Link
+                onClick={() => navigate("/summary")}
+                href="#"
+                style={{ color: "white" }}
+              >
+                Summary
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -6,6 +6,7 @@ import DetailProduct from "./pages/DetailProduct";
 import { ListProduct } from "./pages/ListProduct";
 import CreateAccount from "./pages/CreateAccount";
 import AiPage from "./pages/AiPage";
+import SummaryPage from "./pages/SummaryPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/createproduct" Component={CreateProduct} />
         <Route path="/detailproduct/:id" Component={DetailProduct} />
         <Route path="/aipage" element={<AiPage />} />
+        <Route path="/summary" element={<SummaryPage />} />
       </Routes>
     </>
   );
